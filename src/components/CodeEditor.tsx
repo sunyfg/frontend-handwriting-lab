@@ -6,6 +6,7 @@ interface CodeEditorProps {
   onChange: (value: string) => void
   height?: number
   className?: string
+  language?: string
 }
 
 export function CodeEditor({
@@ -13,6 +14,7 @@ export function CodeEditor({
   onChange,
   height = 520,
   className,
+  language = 'typescript',
 }: CodeEditorProps) {
   return (
     <div
@@ -22,7 +24,7 @@ export function CodeEditor({
       )}
     >
       <Editor
-        language="typescript"
+        language={language}
         theme="vs-dark"
         value={value}
         height={height}

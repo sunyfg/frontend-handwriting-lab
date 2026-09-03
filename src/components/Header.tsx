@@ -15,10 +15,25 @@ export function Header({ className }: { className?: string }) {
             to="/"
             className="text-base font-semibold tracking-tight text-slate-900 transition hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           >
-            Frontend Handwriting Lab
+            Interview Practice Lab
           </Link>
-          <p className="mt-1 text-sm text-slate-500">前端面试高频手写题训练</p>
+          <p className="mt-1 text-sm text-slate-500">前端手写题 / MySQL 面试题训练</p>
         </div>
+
+        <nav className="flex items-center gap-2 text-sm">
+          <Link
+            to="/"
+            className="rounded-xl px-3 py-2 font-medium text-slate-600 transition hover:bg-white hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          >
+            前端手写题
+          </Link>
+          <Link
+            to="/mysql"
+            className="rounded-xl px-3 py-2 font-medium text-slate-600 transition hover:bg-white hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+          >
+            MySQL 面试题
+          </Link>
+        </nav>
       </div>
     </header>
   )

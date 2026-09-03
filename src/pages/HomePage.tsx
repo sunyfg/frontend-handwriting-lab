@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { ProblemCard } from '../components/ProblemCard'
 import { ProblemFilters } from '../components/ProblemFilters'
+import { Button } from '../components/ui/Button'
 import { EmptyState } from '../components/ui/EmptyState'
 import { Panel } from '../components/ui/Panel'
 import { ProgressBar } from '../components/ui/ProgressBar'
@@ -76,6 +78,14 @@ export function HomePage() {
               <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-500 sm:text-base">
                 从题库浏览、在线编写、运行代码、运行测试，到查看案例和参考答案，都可以在一个页面流里完成。
               </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link to="/problem/debounce">
+                  <Button variant="primary">继续前端练习</Button>
+                </Link>
+                <Link to="/mysql">
+                  <Button variant="secondary">进入 MySQL 模块</Button>
+                </Link>
+              </div>
             </div>
 
             <Panel className="bg-slate-50 p-5">
@@ -119,6 +129,37 @@ export function HomePage() {
                 </p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
+            <Panel className="border-blue-200 bg-blue-50/70 p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
+                Learning Modules
+              </p>
+              <h2 className="mt-3 text-xl font-semibold tracking-tight text-slate-900">
+                前端手写题练习
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                继续完成 JavaScript / TypeScript / React 高频手写题，支持在线编写、运行代码和运行测试。
+              </p>
+            </Panel>
+
+            <Panel className="p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">
+                New Module
+              </p>
+              <h2 className="mt-3 text-xl font-semibold tracking-tight text-slate-900">
+                MySQL 面试题练习
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                基于统一业务数据库练习 SQL 查询、JOIN、子查询和综合业务题，支持真实数据库执行结果与错误反馈。
+              </p>
+              <div className="mt-4">
+                <Link to="/mysql">
+                  <Button variant="secondary">打开 MySQL 题库</Button>
+                </Link>
+              </div>
+            </Panel>
           </div>
         </Panel>
 

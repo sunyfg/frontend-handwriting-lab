@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "concurrently \"pnpm dev:server\" \"pnpm dev:web\"",
+    "dev:web": "vite",
+    "dev:server": "tsx watch server/index.ts",
     "build": "tsc -b && vite build",
     "typecheck": "tsc -b",
     "test": "vitest run",
@@ -16,12 +18,17 @@
     "random": "tsx scripts/random-problem.ts",
     "random:easy": "tsx scripts/random-problem.ts easy",
     "random:medium": "tsx scripts/random-problem.ts medium",
-    "random:hard": "tsx scripts/random-problem.ts hard"
+    "random:hard": "tsx scripts/random-problem.ts hard",
+    "db:init": "tsx scripts/db-init.ts",
+    "db:reset": "tsx scripts/db-reset.ts"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
     "clsx": "^2.1.1",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
     "monaco-editor": "^0.56.0",
+    "mysql2": "^3.24.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.30.6",
@@ -29,6 +36,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^16.2.0",
+    "@types/express": "^5.0.6",
     "@types/node": "^22.10.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -37,6 +45,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-v8": "^2.1.8",
     "autoprefixer": "^10.5.4",
+    "concurrently": "^10.0.5",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react-hooks": "^4.6.2",
